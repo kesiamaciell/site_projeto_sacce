@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Suélem Barros - Estética e Beleza</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/entrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <ul class="sidebar">
+            <br>
+            <li onclick=offSidebar()><i class="fa-solid fa-xmark"></i></li>
+           <li><a href="entrar.html">Agendar</a></li>
+           <li><a href="procedimentos.html">Procedimentos</a></li>
+           <li><a href="" id="irSobre">A Estética</a></li>
+           <li><a href="login.html">Entrar</a><li>
+        </ul>
+        <div class="head">
+       <div><a href="homepage.html"><img src="../static/img/logo.png" class="header-logo"></a></div>
+       <ul class="center">
+           <li class="hideOnMobile"><a href="entrar.html">Agendar</a></li>
+           <li class="hideOnMobile"><a href="procedimentos.html">Procedimentos</a></li>
+           <li class="hideOnMobile"><a href="quemsomos.html">A Estética</a></li>
+       </ul>
+       <ul class="right">
+           <li class="hideOnMobile"><a href="login.html">Entrar</a></li>
+       </ul>
+           <ul class="menubutton" onclick=showSidebar()><i class="fa-solid fa-bars"></i></ul>
+       </div>
+
+    </header>
+
+    
+    <div class="container-login">
+        <div>
+            <a href="homepage.html" class="btn-voltar">Voltar</a>
+        </div>
+        <div class="container-form">
+            <h1>Cadastro</h1>
+            <h5>Preencha todos os campos para efetuar seu cadastro!</h5>
+
+            <form action="http://localhost/projeto_sacce/ps_site/static/php/confirmacao_cadastro.php" method="post">
+                <div>
+                    <label for="cpf">CPF:</label>
+                    <input class="cpf" type="text" id="cpf" readonly name="cpf" required placeholder="Ex.: 000.000.000-00" maxlength="14" >
+                </div>
+                 <div class="input-cadastrar">
+                    <label for="nome_completo">Nome Completo:</label>
+                    <input type="text" id="nome_completo" name="nome_completo" maxlength="45">
+                </div>
+                <div>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" placeholder="dd-mm-aaaa" required maxlenght="8">
+                </div> 
+                   
+            
+                <div class="container-genero input-cadastrar">
+                    <div>Gênero:</div>
+                    <label for="feminino">
+                        <input type="radio" id="feminino" name="genero" value="feminino">
+                        <span class="radio-custom"></span> Feminino
+                    </label>
+                    <label for="masculino">
+                        <input type="radio" id="masculino" name="genero" value="masculino">
+                        <span class="radio-custom"></span> Masculino
+                    </label>
+                    <label for="outro">
+                        <input type="radio" id="outro" name="genero" value="outro">
+                        <span class="radio-custom"></span> Outro
+                    </label>
+                </div>
+            
+                <div class="input-cadastrar">
+                    <label for="telefone1">Telefone 1:</label>
+                    <input class="tel" type="tel" id="telefone1" name="telefone1" maxlenght="15">
+                </div>
+            
+                <div class="input-cadastrar">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" maxlenght="40">
+                    
+                    <div class="button-container">
+                        <button type="submit" class="btn-submit">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <div class="container-login">
+        
+    <footer class="footer">
+            <i id="backToTop" class="fa-solid fa-circle-chevron-up footer-icon"></i>     
+        <div class="container">
+            <img src="../static/img/logo.png" alt="Logo da estetica" class="footer-logo">
+            <div class="footer-info">
+                <h4>Estamos localizados no endereço: </h4>
+                <p><i class="fa-solid fa-map-location-dot"></i> <a href="https://maps.app.goo.gl/RBum2La1ichGBBxZ7" target="_blank">Rua Diogo Móia N° 535</a></p>
+                <p>Umarizal</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Entre em contato: </h4>
+                <p><i class="fa-solid fa-phone"></i> (91)98403-4700</p>
+                <p><i class="fa-regular fa-envelope"></i> suelem@barros.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/fCVymgTY9odrknGM/?mibextid=qi2Omg" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/suelembarros.estetica?igsh=MW82amRvdmhqZHZmMA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/message/W5l77QFDFPWUH1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            
+        </div>
+
+    </footer>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/login.js"></script>
+    <script>
+        // Função para recuperar parâmetros da URL
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Recupera o CPF da URL
+        var cpf = getParameterByName('cpf');
+
+        // Verifica se o CPF foi passado na URL
+        if (cpf) {
+            // Preenche o campo de CPF no formulário
+            document.getElementById('cpf').value = cpf;
+        }
+    </script>
+    <script>
+        //função para formatar o telefone no formato (99) 9999-9999
+        document.getElementById('telefone1').addEventListener('input', function (e) {
+            var tel = e.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            var formattedTel = '';
+    
+            if (tel.length > 0) {
+                formattedTel += '(' + tel.substring(0, 2); // Adiciona os primeiros dois dígitos
+            }
+            if (tel.length > 2) {
+                formattedTel += ') ' + tel.substring(2, 7); // Adiciona os próximos cinco dígitos
+            }
+            if (tel.length > 7) {
+                formattedTel += '-' + tel.substring(7, 11); // Adiciona os últimos quatro dígitos
+            }
+    
+            e.target.value = formattedTel; // Atualiza o valor do campo com a formatação
+        });
+    </script>
+    <script>
+        // Obtém o elemento de entrada da data de nascimento
+        var dataInput = document.getElementById('data_nascimento');
+    
+        // Obtém a data atual
+        var today = new Date();
+        var maxYear = today.getFullYear();
+        var minYear = maxYear - 100;
+    
+        // Define o valor mínimo e máximo para o atributo 'min' e 'max' do input
+        dataInput.setAttribute('min', minYear + '-01-01');
+        dataInput.setAttribute('max', maxYear + '-12-31');
+    
+    </script>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Suélem Barros - Estética e Beleza</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/entrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+        <ul class="sidebar">
+            <br>
+            <li onclick=offSidebar()><i class="fa-solid fa-xmark"></i></li>
+           <li><a href="entrar.html">Agendar</a></li>
+           <li><a href="procedimentos.html">Procedimentos</a></li>
+           <li><a href="" id="irSobre">A Estética</a></li>
+           <li><a href="../templates/login.html">Login</a><li>
+        </ul>
+        <div class="head">
+       <div><a href="homepage.html"><img src="../static/img/logo.png" class="header-logo"></a></div>
+       <ul class="center">
+           <li class="hideOnMobile"><a href="entrar.html">Agendar</a></li>
+           <li class="hideOnMobile"><a href="procedimentos.html">Procedimentos</a></li>
+           <li class="hideOnMobile"><a href="quemsomos.html">A Estética</a></li>
+       </ul>
+       <ul class="right">
+           <li class="hideOnMobile"><a href="login.html">Login</a></li>
+       </ul>
+           <ul class="menubutton" onclick=showSidebar()><i class="fa-solid fa-bars"></i></ul>
+       </div>
+
+    </header>
+
+
+    <div class="container-login">
+        <div>
+            <a href="../templates/login.html" class="btn-voltar">Voltar</a>
+        </div>
+        <div class="container-form">
+            <h1>Acesso Restrito</h1>
+            
+
+            <form action="http://localhost/projeto_sacce/ps_site/static/php/acesso_restrito.php" method="post" onsubmit="return validarSenha()">
+                <div>
+                    <label for="administrador">Nome de Usuário:</label>
+                    <input class="administrador" type="text" id="administrador" name="administrador" title="Digite o seu nome de usuário" maxlength="45" required>
+                </div>
+        
+                <div>
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                
+                </div>
+                
+                <div id="error-message" style="display: color: red;"></div>
+
+                
+                <div class="button-container">
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+       
+
+
+    <footer class="footer">
+            <i id="backToTop" class="fa-solid fa-circle-chevron-up footer-icon"></i>     
+        <div class="container">
+            <img src="../static/img/logo.png" alt="Logo da estetica" class="footer-logo">
+            <div class="footer-info">
+                <h4>Estamos localizados no endereço: </h4>
+                <p><i class="fa-solid fa-map-location-dot"></i> <a href="https://maps.app.goo.gl/RBum2La1ichGBBxZ7" target="_blank">Rua Diogo Móia N° 535</a></p>
+                <p>Umarizal</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Entre em contato: </h4>
+                <p><i class="fa-solid fa-phone"></i> (91)98403-4700</p>
+                <p><i class="fa-regular fa-envelope"></i> suelem@barros.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/fCVymgTY9odrknGM/?mibextid=qi2Omg" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/suelembarros.estetica?igsh=MW82amRvdmhqZHZmMA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/message/W5l77QFDFPWUH1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            
+        </div>
+
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/login.js"></script>
+    <script>
+        // Função para validar o formulário
+        function validateForm() {
+            // Obter os valores dos campos
+            var administrador = document.getElementById("administrador").value;
+            var senha = document.getElementById("senha").value;
+
+            // Verificar se os campos estão vazios
+            if (administrador === "" || senha === "") {
+                alert("Por favor, preencha todos os campos.");
+                return false; // Impede o envio do formulário
+            }
+
+            // Se tudo estiver correto, retorna true para enviar o formulário
+            return true;
+        }
+
+        // Verificar se há mensagem de erro na URL
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var error = urlParams.get('error');
+            if (error === "1") {
+                document.getElementById("error-message").style.display = "block";
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector('#login-form');
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const formData = new FormData(form);
+                const response = await fetch('login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.erro) {
+                    // Exibir a mensagem de erro em um alerta
+                    alert(data.erro);
+                } else {
+                    // Caso não haja erro, redirecione para a página de administrador
+                    window.location.href = 'http://localhost/projeto_sacce/ps_site/templates/administrador.php';
+                }
+            });
+        });
+    </script>
+    <script>
+    function validarSenha() {
+        var senha = document.getElementById("senha").value;
+        var pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+
+        if (!pattern.test(senha)) {
+            document.getElementById("error-message").innerHTML = "A senha deve ter pelo menos 8 caracteres, sendo pelo menos uma letra maiúscula, uma letra minúscula e um número.";
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

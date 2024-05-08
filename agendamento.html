@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Suélem Barros - Estética e Beleza</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/entrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<br><br><br><br><br>
+
+<body>
+    <header>
+        <ul class="sidebar">
+            <br>
+            <li onclick=offSidebar()><i class="fa-solid fa-xmark"></i></li>
+           <li><a href="entrar.html">Agendar</a></li>
+           <li><a href="procedimentos.html">Procedimentos</a></li>
+           <li><a href="" id="irSobre">A Estética</a></li>
+           <li><a href="login.html">Entrar</a><li>
+        </ul>
+        <div class="head">
+       <div><a href="homepage.html"><img src="../static/img/logo.png" class="header-logo"></a></div>
+       <ul class="center">
+           <li class="hideOnMobile"><a href="entrar.html">Agendar</a></li>
+           <li class="hideOnMobile"><a href="procedimentos.html">Procedimentos</a></li>
+           <li class="hideOnMobile"><a href="quemsomos.html">A Estética</a></li>
+       </ul>
+       <ul class="right">
+           <li class="hideOnMobile"><a href="login.html">Entrar</a></li>
+       </ul>
+           <ul class="menubutton" onclick=showSidebar()><i class="fa-solid fa-bars"></i></ul>
+       </div>
+
+    </header>
+    
+    <div class="container-login">
+        <div class="container-form"  id="calendar">
+            <h1>Agendamento</h1>
+            <h5> Escolha o procedimento, a data e a hora!"</h5>
+           <form action="http://localhost/projeto_sacce/ps_site/static/php/confirmacao_agendamento.php" method="POST">
+            <label for="nome_completo">Nome Completo:</label>
+            <input type="text" id="nome_completo" readonly name="nome_completo">
+            <label for="cpf">CPF:</label>
+            <input class="cpf" type="text" id="cpf" readonly name="cpf" required placeholder="Ex.: 000.000.000-00" maxlength="14" >
+                <label for="procedimentos">Procedimentos:</label>
+                <select id="procedimentos" name="procedimentos" required>
+                    <option value="" disabled selected>Selecione um procedimento</option>
+                    <option value="criolipolise_de_placas">1 - Criolipólise de Placas</option>
+                    <option value="endolaser">2 - Endolaser</option>
+                    <option value="radiofrequencia">3 - Radiofrequência</option>
+                    <option value="ozonioterapia">4 - Ozônioterapia</option>
+                    <option value="carboxiterapia">5 - Carboxiterapia</option>
+                    <option value="enzimas">6 - Enzimas</option>
+                    <option value="drenagem_linfatica">7 - Drenagem Linfática</option>
+                    <option value="massagem_relaxante">8 - Massagem Relaxante</option>
+                    <option value="manta_detox">9 - Manta Detóx</option>
+                    <option value="hidrolipoplasia">10 - Hidrolipoplasia</option>
+                    <option value="corrente_russa">11 - Corrente Russa</option>
+                    <option value="limpeza_de_pele">12 - Limpeza de Pele</option>
+                    <option value="microagulhamento">13 - Microagulhamento</option>
+                    <option value="lavieen">14 - Lavieen</option>
+                </select>    
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required maxlenght="8"><br>
+                <label for="hora">Hora:</label>
+                <select id="hora" name="hora" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="08:00">08:00</option>
+                    <option value="08:30">08:30</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                </select><br>
+                <input type="submit" class="btn-submit" value="Agendar">
+            </div>
+                            
+            </form>
+        </div>
+    </div>
+       
+
+
+   
+    <footer class="footer">
+            <i id="backToTop" class="fa-solid fa-circle-chevron-up footer-icon"></i>     
+        <div class="container">
+            <img src="../static/img/logo.png" alt="Logo da estetica" class="footer-logo">
+            <div class="footer-info">
+                <h4>Estamos localizados no endereço: </h4>
+                <p><i class="fa-solid fa-map-location-dot"></i> <a href="https://maps.app.goo.gl/RBum2La1ichGBBxZ7" target="_blank">Rua Diogo Móia N° 535</a></p>
+                <p>Umarizal</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Entre em contato: </h4>
+                <p><i class="fa-solid fa-phone"></i> (91)98403-4700</p>
+                <p><i class="fa-regular fa-envelope"></i> suelem@barros.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/share/fCVymgTY9odrknGM/?mibextid=qi2Omg" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/suelembarros.estetica?igsh=MW82amRvdmhqZHZmMA==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/message/W5l77QFDFPWUH1" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            
+        </div>
+
+    </footer>
+
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/drag.js"></script>
+    <script>
+        window.onload = function() {
+            // Recupera os parâmetros da URL
+            const params = new URLSearchParams(window.location.search);
+            const cpf = params.get('cpf');
+            const nome_completo = params.get('nome_completo');
+            
+            // Preenche os campos do formulário
+            document.getElementById('cpf').value = cpf;
+            document.getElementById('nome_completo').value = nome_completo;
+        };
+    </script>
+    <script>
+        //só permite a inclusão de datas a partir da data atual
+        document.getElementById('data').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
+
+</body>
+</html>
